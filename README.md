@@ -1,7 +1,8 @@
-Marketplace is full-stack application. 
-Users can log in with their Google account, perform operations such as creating, adding, editing, deleting, collections and products. Users can buy and exchange products with each other.
-The marketplace_server folder contains the back-end source code, while the marketplace_client folder includes the front-end source code. 
-The nginx folder contains the Nginx configuration files, and the docker-compose.yml file is used to configure and run the Docker containers.
+- Marketplace is full-stack application. 
+- Users can log in with their Google account, perform operations such as creating, adding, editing, deleting, collections and products.
+- Users can buy and exchange products with each other.
+- The marketplace_server folder contains the back-end source code, while the marketplace_client folder includes the front-end source code. 
+- The nginx folder contains the Nginx configuration files, and the docker-compose.yml file is used to configure and run the Docker containers.
 
 When the application is deployed, the incoming requests will proceed in a flow as in the diagram below.
 
