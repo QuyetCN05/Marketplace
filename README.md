@@ -16,5 +16,6 @@ The brief tech stack information of the application is as follows:
 - Docker
 - Nginx
 - Postgres SQL
+- AWS EC2 for deployment
 
 
