@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #f3f0f9;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: #4696e7;
+  border-radius: 10px;
+}
+
+* {
+  font-family: "Public Sans", sans-serif;
+}

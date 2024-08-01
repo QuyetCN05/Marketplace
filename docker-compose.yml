@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: adonis
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: marketplacedb
+    volumes:
+      - db_marketplace:/var/lib/postgresql/data
+
+
+  marketplace_server:
+    build: ./marketplace_server
+    container_name: "marketplace_server_1"
+    depends_on:
+      - db
+    env_file:
+      - ./marketplace_server/.env
+    command: ["node", "./bin/server.js"]
+
+
+#    entrypoint: ['/app/startup.sh']
+
+  marketplace_client:
+    build: ./marketplace_client
+    container_name: "marketplace_client_1"
+    env_file:
+      - ./marketplace_client/.env.production
+    depends_on:
+      - marketplace_server
+  proxy:
+    build: ./nginx
+    container_name: "marketplace-portal-proxy"
+    restart: always
+    ports:
+      - "80:80"
+volumes:
+    db_marketplace:
