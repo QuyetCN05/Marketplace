@@ -28,12 +28,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: './marketplace_client/package-lock.json'
+          cache: 'pnpm'
+          cache-dependency-path: './marketplace_client/pnpm-lock.yaml'
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - run: npm install
+      - run: pnpm install
         working-directory: ./marketplace_client
-      - run: npm run build:prod
+      - run: pnpm build:prod
         working-directory: ./marketplace_client
   build-be:
     name: Build Backend
@@ -51,15 +53,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-          cache-dependency-path: './marketplace_server/pnpm-lock.yaml''
-      - name: Install pnpm
-        run: npm install -g pnpm
+          cache: 'npm'
+          cache-dependency-path: './marketplace_server/package-lock.json'
+
 
       - run: npm install
         working-directory: ./marketplace_server
 
-      - run: npm build:prod
+      - run: npm run build
         working-directory: ./marketplace_server
 
 
