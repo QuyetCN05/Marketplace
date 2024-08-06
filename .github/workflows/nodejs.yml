@@ -13,7 +13,7 @@ on:
 jobs:
   build_fe:
 
-    name: NodeJS Install and Build
+    name: Build Frontend
     runs-on: ubuntu-latest
 
     strategy:
@@ -38,7 +38,7 @@ jobs:
       - run: pnpm build:prod
         working-directory: ./marketplace_client
   build-be:
-    name: NodeJS Install and Build
+    name: Build Backend
     runs-on: ubuntu-latest
 
     strategy:
