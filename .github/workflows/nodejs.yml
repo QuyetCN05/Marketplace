@@ -28,14 +28,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: 'npm'
           cache-dependency-path: './marketplace_client/package-lock.json'
-      - name: Install pnpm
-        run: npm install -g pnpm
 
-      - run: pnpm install
+      - run: npm install
         working-directory: ./marketplace_client
-      - run: pnpm build:prod
+      - run: npm run build:prod
         working-directory: ./marketplace_client
   build-be:
     name: Build Backend
