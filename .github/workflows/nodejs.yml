@@ -21,16 +21,14 @@ jobs:
         node-version: [22.x]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.32.9
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-#          cache-dependency-path: './marketplace_client/pnpm-lock.yaml'
-
       - run: pnpm install
         working-directory: ./marketplace_client
       - run: pnpm build:prod
