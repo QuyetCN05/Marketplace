@@ -30,7 +30,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
           cache-dependency-path: './marketplace_client/pnpm-lock.yaml'
-      - run: pnpm install
+      - run: pnpm install --only=production
         working-directory: ./marketplace_client
       - run: pnpm build:prod
         working-directory: ./marketplace_client
