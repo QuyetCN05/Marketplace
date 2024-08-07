@@ -37,7 +37,7 @@ export default function Footer() {
     <div className="flex justify-center bg-secondary-800">
       <div className="flex w-full max-w-default gap-16 px-16 py-10 text-white">
         <div className="flex flex-1 flex-col gap-2">
-          <div className="text-xl font-bold">Stay in the loop</div>
+          <div className="text-xl font-bold">Bui Huu Quyet</div>
           <div>
             Join our mailing list to stay in the loop with our newest feature
             releases, NFT drops, and tips and tricks for navigating OpenSea.
