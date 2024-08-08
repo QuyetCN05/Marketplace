@@ -66,7 +66,7 @@ export default function Footer() {
         <div className="flex-1">
           <div className="text-xl font-bold">Need help?</div>
           <Button size="lg" color="secondary">
-            Contact Support
+            Contact Support By ME
           </Button>
         </div>
       </div>
