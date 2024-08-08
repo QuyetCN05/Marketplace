@@ -89,6 +89,9 @@ jobs:
           file: ./marketplace_client/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fe:latest
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
 
       - name: Build and push Backend
         uses: docker/build-push-action@v2
@@ -97,6 +100,26 @@ jobs:
           file: ./marketplace_server/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/be:latest
+        env:
+          TZ: ${{ secrets.TZ }}
+          PORT: ${{ secrets.PORT }}
+          HOST: ${{ secrets.HOST }}
+          LOG_LEVEL: ${{ secrets.LOG_LEVEL }}
+          APP_KEY: ${{ secrets.APP_KEY }}
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_FOLDER: ${{ secrets.CLOUDINARY_FOLDER }}
+        
 
       - name: Build and push Nginx
         uses: docker/build-push-action@v3
